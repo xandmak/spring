@@ -1,14 +1,16 @@
 package test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import java.util.List;
 
-@Component
 public class Zoo {
     private Animal dog;
     private Animal cat;
+    private String name;
+    private List<Animal> animals;
 
-    @Autowired
+    public Zoo() {
+    }
+
     public Zoo(Animal dog, Animal cat) {
         this.dog = dog;
         this.cat = cat;
@@ -28,5 +30,21 @@ public class Zoo {
 
     public void setCat(Animal cat) {
         this.cat = cat;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
     }
 }

@@ -11,10 +11,14 @@ public class Main {
 //    }
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        Zoo zoo = context.getBean("zoo", Zoo.class);
+        ApplicationContext context = getXmlContext();
+        Zoo zoo = context.getBean("constructorZoo",Zoo.class);
         context.publishEvent(new SomeEvent(zoo, "test"));
         zoo.getCat().voice();
         zoo.getDog().voice();
+    }
+
+    public static ApplicationContext getXmlContext() {
+        return new ClassPathXmlApplicationContext("XmlApplicationContext.xml");
     }
 }

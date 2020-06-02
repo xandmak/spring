@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire-candidates="false"
+>
+
+    <bean id="listener" class="test.event.AppListener"/>
+
+    <bean id="cat" name="cat" class="test.Cat"/>
+    <bean id="dog" name="dog" class="test.Dog"/>
+
+    <!--        Factory Method init-->
+    <bean id="manageableDog" name="manageableDog" class="test.Dog"
+          factory-method="getInstance"
+          scope="prototype"
+          init-method="init"
+          destroy-method="destroy"
+    />
+
+    <bean id="constructorZoo" name="constructorZoo" class="test.Zoo">
+        <constructor-arg name="cat" ref="cat"/>
+        <constructor-arg name="dog" ref="dog"/>
+    </bean>
+
+    <bean id="setterZoo" name="setterZoo" class="test.Zoo">
+        <property name="cat" ref="cat"/>
+        <property name="dog" ref="dog"/>
+        <property name="name" value="Mishutka"/>
+    </bean>
+
+    <bean id="innerBeanSetterZoo" name="innerBeanSetterZoo" class="test.Zoo">
+        <property name="cat">
+            <bean class="test.Cat"/>
+        </property>
+        <property name="dog">
+            <bean class="test.Dog"/>
+        </property>
+    </bean>
+
+    <bean id="innerBeanConstructorZoo" name="innerBeanConstructorZoo" class="test.Zoo">
+        <constructor-arg name="cat">
+            <bean class="test.Cat"/>
+        </constructor-arg>
+        <constructor-arg name="dog">
+            <bean class="test.Dog"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="listZoo" class="test.Zoo">
+        <property name="animals">
+            <list>
+                <ref bean="cat"/>
+                <ref bean="dog"/>
+            </list>
+        </property>
+    </bean>
+
+<!--    <bean id="autowiredByName" class="test.Zoo" autowire="byName"/>-->
+<!--    <bean id="autowiredByType" class="test.Zoo" autowire="byType"/>-->
+<!--    <bean id="autowiredByConstructor" class="test.Zoo" autowire="constructor"/>-->
+
+<!--    <bean id="autowiredCat" class="test.Cat" autowire-candidate="true" primary="true"/>-->
+<!--    <bean id="autowiredDog" class="test.Dog" autowire-candidate="true" primary="true"/>-->
+</beans>
