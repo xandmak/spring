@@ -2,11 +2,11 @@ package test.event;
 
 import org.springframework.context.ApplicationEvent;
 
-public class SomeEvent extends ApplicationEvent {
+public class ZooEvent extends ApplicationEvent {
 
     private String message;
 
-    public SomeEvent(Object source, String message) {
+    public ZooEvent(Object source, String message) {
         super(source);
         this.message = message;
     }

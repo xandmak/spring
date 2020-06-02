@@ -4,11 +4,11 @@ import org.springframework.stereotype.Component;
 import test.dto.Food;
 
 @Component
-public class Cat implements Animal {
+public class Fish implements Animal {
     private boolean angry = true;
 
+    @Override
     public void voice() {
-        System.out.println("mi");
     }
 
     @Override
