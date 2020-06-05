@@ -4,6 +4,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.Future;
 import java.util.function.Supplier;
 
@@ -15,6 +16,7 @@ public class AsyncServiceImpl implements AsyncService {
     public <T> void doAsync(Supplier<T> supplier) {
         supplier.get();
         System.out.println(Thread.currentThread().getName());
+        System.out.println(LocalDateTime.now().toString());
     }
 
     @Async

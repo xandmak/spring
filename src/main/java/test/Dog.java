@@ -1,13 +1,11 @@
 package test;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import test.annotations.AopMarker;
 import test.dto.Food;
 
-import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
-
 @Component
-@Scope(value = SCOPE_PROTOTYPE)
+@AopMarker
 public class Dog implements Animal {
     private boolean angry = true;
 

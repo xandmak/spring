@@ -1,12 +1,14 @@
 package test.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import test.Animal;
 import test.Zoo;
 import test.dto.Food;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -38,20 +40,16 @@ public class ZooServiceImpl implements ZooService {
         zoo.getAnimals().forEach(Animal::voice);
     }
 
-//    private void doAsync(Food food, Animal animal) {
-//        asyncService.doAsync(() -> animal.eat(food));
-//    }
-
-    private boolean doAsync(Food food, Animal animal) {
-        try {
-            return asyncService.doAsyncReturned(() -> animal.eat(food)).get(500, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-        return true;
+    private void doAsync(Food food, Animal animal) {
+        asyncService.doAsync(() -> animal.eat(food));
     }
+
+//    private boolean doAsync(Food food, Animal animal) {
+//        try {
+//            return asyncService.doAsyncReturned(() -> animal.eat(food)).get(500, TimeUnit.MILLISECONDS);
+//        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+//            e.printStackTrace();
+//        }
+//        return true;
+//    }
 }

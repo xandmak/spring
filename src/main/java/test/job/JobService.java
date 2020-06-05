@@ -17,9 +17,9 @@ public class JobService {
         this.zooService = zooService;
     }
 
-//    @Scheduled(fixedDelay = 1000)
-//    public void voice() {
-//        System.out.println(LocalDateTime.now().toString());
-//        zooService.voice();
-//    }
+    @Scheduled(cron = "")
+    public void voice() {
+        System.out.println(LocalDateTime.now().toString());
+        zooService.voice();
+    }
 }
