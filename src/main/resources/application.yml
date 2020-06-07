@@ -1,1 +1,38 @@
-zoo.name: Mishutka
+zoo.name: Noah's Ark
+
+#cat attributes
+cat.voice: meow
+cat.defaultEnergyLevel: 400
+cat.hungryEnergyLevel: 200
+cat.satietyEnergyLevel: 400
+cat.timeEnergyStep: 10
+
+#dog attributes
+dog.voice: woof
+dog.defaultEnergyLevel: 1000
+dog.hungryEnergyLevel: 500
+dog.satietyEnergyLevel: 1000
+dog.timeEnergyStep: 20
+
+#horse attributes
+horse.voice: neigh
+horse.defaultEnergyLevel: 1000
+horse.hungryEnergyLevel: 500
+horse.satietyEnergyLevel: 1000
+horse.timeEnergyStep: 20
+
+#Pigeon attributes
+pigeon.voice: chirp
+pigeon.defaultEnergyLevel: 1000
+pigeon.hungryEnergyLevel: 500
+pigeon.satietyEnergyLevel: 1000
+pigeon.timeEnergyStep: 20
+
+#fish attributes
+fish.defaultEnergyLevel: 1000
+fish.hungryEnergyLevel: 500
+fish.satietyEnergyLevel: 1000
+fish.timeEnergyStep: 20
+
+
+  neigh

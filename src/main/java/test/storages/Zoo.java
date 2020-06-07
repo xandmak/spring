@@ -1,37 +1,27 @@
-package test;
+package test.storages;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import test.animals.Animal;
 
 import java.util.List;
 
 @Component
 public class Zoo {
-    private final Animal dog;
-    private final Animal cat;
     private final String name;
     private final List<Animal> animals;
+    private final Warehouse warehouse;
 
     @Autowired
     public Zoo(
-            Animal dog,
-            Animal cat,
             @Value("${zoo.name}") String name,
-            List<Animal> animals
+            List<Animal> animals,
+            Warehouse warehouse
     ) {
-        this.dog = dog;
-        this.cat = cat;
         this.name = name;
         this.animals = animals;
-    }
-
-    public Animal getDog() {
-        return dog;
-    }
-
-    public Animal getCat() {
-        return cat;
+        this.warehouse = warehouse;
     }
 
     public String getName() {
@@ -42,4 +32,5 @@ public class Zoo {
         return animals;
     }
 
+    public Warehouse getWarehouse() { return warehouse; }
 }

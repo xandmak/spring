@@ -1,8 +1,12 @@
 package test.service;
 
-import test.dto.Food;
+import test.animals.Animal;
+import test.dto.FoodType;
 
 public interface ZooService {
-    void feed(Food food);
+    void feed(Animal animal, FoodType type);
     void voice();
+    void delivery();
+    void checkFood();
+    void decreaseEnergy();
 }
